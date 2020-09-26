@@ -6,6 +6,8 @@ namespace EmployeeWages
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Employee Wage Computation Program");
+
             int IS_FULL_TIME = 1;
             Random random = new Random();
 
