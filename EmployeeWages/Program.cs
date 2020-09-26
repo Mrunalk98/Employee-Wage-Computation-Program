@@ -6,29 +6,32 @@ namespace EmployeeWages
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Employee Wage Computation Program");
-
-            string attendance = EmpAttendance();
-            Console.WriteLine(attendance);
+            int empWage = EmpDailyWage();
+            Console.WriteLine("Employee Wage : {0}", empWage);
 
         }
 
-        static string EmpAttendance()
+        static int EmpDailyWage()
         {
             int IS_FULL_TIME = 1;
-            string result;
+            int EMP_RATE_PER_HOUR = 20;
+
+            int empHrs = 0;
+            int empWage = 0;
+
             Random random = new Random();
 
             int empCheck = random.Next(0, 2);
             if (empCheck == IS_FULL_TIME)
             {
-                result = "Employee is Present";
+                empHrs = 8;
             }
             else
             {
-                result = "Employee is Absent";
+                empHrs = 0;
             }
-            return result;
+            empWage = empHrs * EMP_RATE_PER_HOUR;
+            return empWage;
         }
     }
 }
