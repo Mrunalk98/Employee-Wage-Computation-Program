@@ -6,42 +6,46 @@ namespace EmployeeWages
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Employee Wage Computation Program");
-
-            int empWage = CalcEmpDailyWage();
-            Console.WriteLine("Employee Wage : {0}", empWage);
+            int totalWage = CalcTotalEmpWage();
+            Console.WriteLine("Total Employee Wage : " + totalWage);
 
         }
 
-        static int CalcEmpDailyWage()
+        static int CalcTotalEmpWage()
         {
             const int IS_PART_TIME = 1;
             const int IS_FULL_TIME = 2;
             const int EMP_RATE_PER_HOUR = 20;
+            const int NO_OF_WORKING_DAYS = 20;
 
             int empHrs = 0;
             int empWage = 0;
+            int totalWages = 0;
 
-            Random random = new Random();
-
-            int empCheck = random.Next(0, 3);
-           
-            switch(empCheck)
+            for (int day = 0; day < NO_OF_WORKING_DAYS; day++)
             {
-                case IS_PART_TIME:
-                    empHrs = 4;
-                    break;
+                Random random = new Random();
+                int empCheck = random.Next(0, 3);
 
-                case IS_FULL_TIME:
-                    empHrs = 8;
-                    break;
+                switch (empCheck)
+                {
+                    case IS_PART_TIME:
+                        empHrs = 4;
+                        break;
 
-                default:
-                    empHrs = 0;
-                    break;
+                    case IS_FULL_TIME:
+                        empHrs = 8;
+                        break;
+
+                    default:
+                        empHrs = 0;
+                        break;
+                }
+                empWage = empHrs * EMP_RATE_PER_HOUR;
+                totalWages += empWage;
+                Console.WriteLine("Employee Wage : " + empWage);
             }
-            empWage = empHrs * EMP_RATE_PER_HOUR;
-            return empWage;
+            return totalWages;
         }
     }
 }
