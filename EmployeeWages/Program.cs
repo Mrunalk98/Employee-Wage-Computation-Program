@@ -6,6 +6,8 @@ namespace EmployeeWages
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Employee Wage Computation Program");
+
             int totalWage = CalcTotalEmpWage();
             Console.WriteLine("Total Employee Wage : " + totalWage);
 
