@@ -8,19 +8,15 @@ namespace EmployeeWages
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program");
 
-            int totalWage = CalcTotalEmpWage();
-            Console.WriteLine("Total Employee Wage : " + totalWage);
+            CalcTotalEmpWage("Jio", 20, 10, 12);
 
         }
 
         // Use Case 6
-        static int CalcTotalEmpWage()
+        static int CalcTotalEmpWage(string CompanyName, int EMP_RATE_PER_HOUR, int NO_OF_WORKING_DAYS, int NO_OF_WORKING_HOURS)
         {
             const int IS_PART_TIME = 1;
             const int IS_FULL_TIME = 2;
-            const int EMP_RATE_PER_HOUR = 20;
-            const int NO_OF_WORKING_DAYS = 20;
-            const int NO_OF_WORKING_HOURS = 100;
 
             int empHrs;
             int totalWage;
@@ -48,9 +44,9 @@ namespace EmployeeWages
                         break;
                 }
                 totalEmpHrs += empHrs;
-                Console.WriteLine("Days : " + totalWorkingDays + ", Emp hours : " + empHrs);
             }
             totalWage = totalEmpHrs * EMP_RATE_PER_HOUR;
+            Console.WriteLine("Total Employee Wage of " + CompanyName + " : " + totalWage);
             return totalWage;
         }
     }
