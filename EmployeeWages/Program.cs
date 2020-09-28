@@ -27,9 +27,9 @@ namespace EmployeeWages
             int totalEmpHrs = 0;
             int totalWorkingDays = 0;
 
-            while (totalWorkingDays < NO_OF_WORKING_DAYS && totalEmpHrs <= NO_OF_WORKING_HOURS)
+            for (totalWorkingDays = 1; totalWorkingDays <= NO_OF_WORKING_DAYS && totalEmpHrs <= NO_OF_WORKING_HOURS; totalWorkingDays++)
             {
-                totalWorkingDays++;
+
                 Random random = new Random();
                 int empCheck = random.Next(0, 3);
 
