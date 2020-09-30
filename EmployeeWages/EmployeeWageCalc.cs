@@ -40,7 +40,8 @@ namespace EmployeeWages
                         break;
                 }
                 totalEmpHrs += empHrs;
-                Console.WriteLine("Days : " + totalWorkingDays + ", Emp hours : " + empHrs);
+                int dailyWage = empHrs * company.empRatePerHour;
+                Console.WriteLine("Days : " + totalWorkingDays + "\tEmp hours : " + empHrs + "\tDaily Wage : " + dailyWage);
             }
             totalWage = totalEmpHrs * company.empRatePerHour;
             Console.WriteLine("\nTotal Employee Wage of " + company.companyName + " : " + totalWage + "\n");
