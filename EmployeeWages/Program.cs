@@ -5,16 +5,14 @@ namespace EmployeeWages
 {
     class Program
     {
-        //private static Company[] companyArray = new Company[10];
-        private static LinkedList<Company> companyList = new LinkedList<Company>();
+
+        public static EmployeeWageCalc empWageCalc = new EmployeeWageCalc();
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program");
 
             Console.WriteLine("Enter the number of companies : ");
             var num = Convert.ToInt32(Console.ReadLine());
-
-            EmployeeWageCalc empWageCalc = new EmployeeWageCalc();
 
             for (int i = 1; i <= num; i++)
             {
@@ -28,10 +26,14 @@ namespace EmployeeWages
                 Console.WriteLine("Enter number of working hours : ");
                 var noOfWorkingHours = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine();
-                Company company = new Company(companyName, empRatePerHour, noOfWorkingDays, noOfWorkingHours);
-                companyList.AddLast(company);
-                empWageCalc.CalcTotalEmpWage(company);
+                empWageCalc.addCompany(companyName, empRatePerHour, noOfWorkingDays, noOfWorkingHours);
             }
+            empWageCalc.CalcTotalEmpWage();
+
+            Console.WriteLine("Enter company name to get Total Wage : ");
+            var name = Console.ReadLine();
+            int total = empWageCalc.getTotalWage(name);
+            Console.WriteLine("Total wage for " + name + " is " + total);
         }
 
     }

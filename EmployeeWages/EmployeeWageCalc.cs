@@ -9,11 +9,34 @@ namespace EmployeeWages
 
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
+        public  LinkedList<Company> companyList;
+        public Dictionary<string, Company> companyDict;
 
 
-        public int CalcTotalEmpWage(Company company)
+        public EmployeeWageCalc()
         {
+            this.companyList = new LinkedList<Company>();
+            this.companyDict = new Dictionary<string, Company>();
+        }
 
+        public void addCompany(string companyName, int empRatePerHour, int noOfWorkingDays, int noOfWorkingHours)
+        {
+            Company company = new Company(companyName, empRatePerHour, noOfWorkingDays, noOfWorkingHours);
+            this.companyList.AddLast(company);
+            this.companyDict.Add(companyName, company);
+        }
+
+        public void CalcTotalEmpWage()
+        {
+            foreach (Company company in this.companyList)
+            {
+                Console.WriteLine("For " + company.companyName);
+                company.setTotalWage(this.CalcTotalEmpWage(company));
+                Console.WriteLine("\nTotal Employee Wage of " + company.companyName + " : " + company.totalWage + "\n");
+            }
+        }
+        private int CalcTotalEmpWage(Company company)
+        {
             int empHrs;
             int totalWage;
             int totalEmpHrs = 0;
@@ -44,8 +67,21 @@ namespace EmployeeWages
                 Console.WriteLine("Days : " + totalWorkingDays + "\tEmp hours : " + empHrs + "\tDaily Wage : " + dailyWage);
             }
             totalWage = totalEmpHrs * company.empRatePerHour;
-            Console.WriteLine("\nTotal Employee Wage of " + company.companyName + " : " + totalWage + "\n");
+            company.setTotalWage(totalWage);
             return totalWage;
         }
+
+        public int getTotalWage(string companyName)
+        {
+            if (this.companyDict.ContainsKey(companyName))
+            {
+                return this.companyDict[companyName].totalWage;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
     }
 }

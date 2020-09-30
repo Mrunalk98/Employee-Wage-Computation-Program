@@ -6,7 +6,7 @@ namespace EmployeeWages
 {
     public interface ComputeEmpWage
     {
-        public int CalcTotalEmpWage(Company company);
+        public void CalcTotalEmpWage();
     }
     public class Company
     {
@@ -14,6 +14,7 @@ namespace EmployeeWages
         public int noOfWorkingDays;
         public int noOfWorkingHours;
         public string companyName;
+        public int totalWage;
 
         public Company(string COMPANY_NAME, int EMP_RATE_PER_HOUR, int NO_OF_WORKING_DAYS, int NO_OF_WORKING_HOURS)
         {
@@ -21,6 +22,11 @@ namespace EmployeeWages
             this.empRatePerHour = EMP_RATE_PER_HOUR;
             this.noOfWorkingDays = NO_OF_WORKING_DAYS;
             this.noOfWorkingHours = NO_OF_WORKING_HOURS;
+        }
+
+        public void setTotalWage(int totalEmpWage)
+        {
+            this.totalWage = totalEmpWage;
         }
 
     }
