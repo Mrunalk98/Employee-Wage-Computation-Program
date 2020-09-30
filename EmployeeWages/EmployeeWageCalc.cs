@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EmployeeWages
 {
-    public class EmployeeWageCalc
+    public class EmployeeWageCalc: ComputeEmpWage
     {
 
         public const int IS_PART_TIME = 1;

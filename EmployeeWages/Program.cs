@@ -25,6 +25,7 @@ namespace EmployeeWages
                 var noOfWorkingDays = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Enter number of working hours : ");
                 var noOfWorkingHours = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
                 companyArray[i] = new Company(companyName, empRatePerHour, noOfWorkingDays, noOfWorkingHours);
                 empWageCalc.CalcTotalEmpWage(companyArray[i]);
             }

@@ -4,6 +4,10 @@ using System.Text;
 
 namespace EmployeeWages
 {
+    public interface ComputeEmpWage
+    {
+        public int CalcTotalEmpWage(Company company);
+    }
     public class Company
     {
         public int empRatePerHour;
