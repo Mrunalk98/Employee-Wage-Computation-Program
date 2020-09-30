@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace EmployeeWages
 {
     class Program
     {
-        private static Company[] companyArray = new Company[10];
+        //private static Company[] companyArray = new Company[10];
+        private static LinkedList<Company> companyList = new LinkedList<Company>();
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program");
@@ -26,8 +28,9 @@ namespace EmployeeWages
                 Console.WriteLine("Enter number of working hours : ");
                 var noOfWorkingHours = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine();
-                companyArray[i] = new Company(companyName, empRatePerHour, noOfWorkingDays, noOfWorkingHours);
-                empWageCalc.CalcTotalEmpWage(companyArray[i]);
+                Company company = new Company(companyName, empRatePerHour, noOfWorkingDays, noOfWorkingHours);
+                companyList.AddLast(company);
+                empWageCalc.CalcTotalEmpWage(company);
             }
         }
 
